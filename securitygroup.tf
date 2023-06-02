@@ -40,4 +40,3 @@ resource "aws_security_group_rule" "eks_egress_rules" {
   security_group_id = aws_security_group.eks_security_group.id
   
 }
-
