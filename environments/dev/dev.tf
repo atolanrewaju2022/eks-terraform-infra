@@ -34,10 +34,10 @@ module "dev_eks" {
   instance_type             = "t2.large"
   capacity_type             = "ON_DEMAND"
   retention_in_days         = 30
-  vpc_cidr                  = "10.220.112.0/20"
+  vpc_cidr                  = "172.31.0.0/16"
   azs                       = [ "us-east-1a", "us-east-1b" , "us-east-1c", "us-east-1d" ]
-  private_subnets_cidr      = ["10.220.120.0/24", "10.220.121.0/24", "10.220.122.0/24", "10.220.123.0/24"]
-  public_subnets_cidr       = ["10.220.132.0/24", "10.220.133.0/24", "10.220.134.0/24", "10.220.135.0/24"]
+  private_subnets_cidr      = [ "172.31.4.0/24" , "172.31.5.0/24", "172.31.6.0/24", "172.31.7.0/24" ]
+  public_subnets_cidr       = [ "172.31.11.0/24" , "172.31.12.0/24", "172.31.13.0/24","172.31.14.0/24" ]
 
 
 
@@ -71,3 +71,4 @@ module "dev_eks" {
   ]
 
 }
+
