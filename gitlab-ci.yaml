@@ -41,10 +41,6 @@ set_env_variables:
     - export ENV_UPPERCASE=`echo "${ENV}" | tr '[a-z]' '[A-Z]'`
       
     # Set AWS credential variables
-    #- KEY_ID_STRING="AWS_ACCESS_KEY_ID_${ENV_UPPERCASE}" # Concatenate environment to end of AWS credential name; this compound value is saved in GitLab variables
-    #- SECRET_ACCESS_STRING="AWS_SECRET_ACCESS_KEY_${ENV_UPPERCASE}" # Concatenate environment to end of AWS credential name; this compound value is saved in GitLab variables
-    #- export AWS_ACCESS_KEY_ID=$(eval echo \$$KEY_ID_STRING)
-    #- export AWS_SECRET_ACCESS_KEY=$(eval echo \$$SECRET_ACCESS_STRING)
     - echo $IAM_ROLE
     - aws sts assume-role --role-arn "$IAM_ROLE" --role-session-name TF_Gitlab_ACCEESS --region us-east-1 >> creds.json   
     - export AWS_ACCESS_KEY_ID=$(jq -r '.Credentials.AccessKeyId' creds.json)  
