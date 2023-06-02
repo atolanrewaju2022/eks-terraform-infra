@@ -7,15 +7,13 @@ resource "aws_security_group" "eks_security_group"  {
 
   tags = {
     Name            = "${var.domain}-${var.env}-eks-security-group"
-    DeptOwner       = "SRE"
+    DeptOwner       = "DevOps"
     DeptSubOwner    = "Infrastructure"
-    BillingGroup    = "DLFrame: ${var.env}"
+    BillingGroup    = "INFRA: ${var.env}"
     BillingSubGroup = "EksCluster"
     Environment     = var.env
-    RequestedBy     = "sreteam@glidewelldental.com"
-    CreatedBy       = "sreteam@glidewelldental.com"
+    CreatedBy       = "DevOps@olanrewaju.com"
   }
-
 }
 
 
