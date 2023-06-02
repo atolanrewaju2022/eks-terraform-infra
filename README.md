@@ -13,7 +13,7 @@ This eks-terraform-infra repository will be use as template to provision Elastic
 - [Infracost](#Infracost)
 
 # Purpose
-Provisions an EKS cluster, the Node Group attached to the cluster, and other supporting resources (ALB's,VPC, IAM etc).
+Provision an EKS cluster, the Node Group attached to the cluster, and other supporting resources (ALB's,VPC, IAM etc).
 
 # Scope
 
@@ -23,6 +23,7 @@ This module includes eks cluster configuration for DLFrame eks  cluster. It can 
 - EKS
 - EKS Node Group
 - Security Group
+- Virtual Private Cloud and it's componenets like Subnets, Nat Gateway, Internet Gateway, Route etc 
 - IAM Role and Permissions
 - Openid Connect Provider
 
