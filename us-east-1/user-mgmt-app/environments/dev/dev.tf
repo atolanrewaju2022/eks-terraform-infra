@@ -1,10 +1,10 @@
 # S3 remote state 
 terraform {
   backend "s3" {
-    bucket         = "dlframe-tf-remote-dev-bkt"
-    key            = "project/DLFrame/eks"
+    bucket         = "user-mgt-dev-bkt"
+    key            = "project/user-mgt/eks"
     region         = "us-east-1"
-    dynamodb_table = "DLFrame_state_locking"
+    dynamodb_table = "user-mgt_state_locking"
   }
 
   required_providers {
@@ -21,16 +21,14 @@ terraform {
 module "dev_eks" {
 
   source                    = "../../"
-  vpc_id                    = "vpc-91cac0e8"
-  private_subnet_ids        = [ "subnet-e8a088c4", "subnet-43f22827", "subnet-e8a088c4", "subnet-791b4675" ]
   create                    = true
   cloudwatch_log_group_name = "dlframe-eks-dev"
   cloudwatch_log_stream     = "eks"
   disk_size                 = 30
-  cluster_name              = "dlframe-dev"
-  keypair                   = "dlframe-eks-dev"
+  cluster_name              = "user-mgmt-dev"
+  keypair                   = "user-mgmt-dev"
   eks_version               = "1.26"
-  node_grp_name             = "dlframe_eks_node_group"
+  node_grp_name             = "user-mgmt-eks-node-group"
   ami_id                    = "ami-0ebd4e6356d0557a5" 
   ami_type                  = "AL2_x86_64"
   instance_type             = "t2.large"
@@ -40,9 +38,9 @@ module "dev_eks" {
   ########################
   # Tags
   ########################
-  domain = "dlframe"
+  domain = "user-mgmt"
   env    = "dev"
-  name   = "Glidewell-dlframe"
+  name   = "dynamic-user-mgmt"
 
 
   ########################
@@ -51,18 +49,17 @@ module "dev_eks" {
   eks_sg_ingress_rules = [
 
     {
-      description = "gl-InfraServices ClientVPN Users"
       from_port   = 0
       to_port     = 0
       protocol    = "-1"
-      cidr_block  = "192.168.128.0/19"
+      cidr_block  = "0.0.0.0/0" # This need to be lock down to cidr in production use 
     },
     {
       description = "DC6 - All Traffic"
       from_port   = 0
       to_port     = 0
       protocol    = "-1"
-      cidr_block  = "10.249.0.0/20"
+      cidr_block  = "0.0.0.0/0" # # This need to be lock down to cidr in production use 
     }
   ]
 
