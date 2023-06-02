@@ -21,9 +21,9 @@ This module includes eks cluster configuration for DLFrame eks  cluster. It can 
 
 # Resources
 - EKS
-- EKSNode Group
+- EKS Node Group
 - Security Group
-- IAM ROLE and Permissions
+- IAM Role and Permissions
 - 
 
 # Infracost 
