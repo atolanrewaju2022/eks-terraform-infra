@@ -20,6 +20,10 @@ Provisions an EKS cluster, the Node Group attached to the cluster, and other sup
 This module includes eks cluster configuration for DLFrame eks  cluster. It can provision clusters in `dev`,`qa`, `uat`, or `prod`. The desired application/environment can be configured via command line invocation. I.e. to deploy the user-magmt-app eks cluster to `uat`, you'd use the following command: `ENV=uat`.
 
 # Resources
-
+- EKS
+- EKSNode Group
+- Security Group
+- IAM ROLE and Permissions
+- 
 
 # Infracost 
