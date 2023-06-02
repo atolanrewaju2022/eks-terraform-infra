@@ -173,12 +173,12 @@ resource "aws_nat_gateway" "app_nat_gw" {
 
 #   tags = {
 #     Name            = "ClientVPN-DEV/EPDEV-${local.environment_prefix}-vpc (us-east-1)"
-#     DeptOwner       = "SRE"
+#     DeptOwner       = "DevOps"
 #     DeptSubOwner    = "Infrastructure"
-#     BillingGroup    = "DLFrame"
-#     BillingSubGroup = "NatGateway"
-#     Environment     = "${local.environment_prefix}"
-#     CreatedBy       = "SRETeam@glidewelldental.com"
+#      BillingGroup    = "INFRA: ${var.env}"
+#      BillingSubGroup = "EksCluster"
+#      Environment     = var.env
+#      CreatedBy       = "DevOps@olanrewaju.com"
 #   }
   
 # }
