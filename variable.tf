@@ -127,14 +127,11 @@ variable "eks_sg_ingress_rules" {}
 #variable "transit_gateway_id" {}
 variable "capacity_type" {}
 variable "retention_in_days" {}
-#variable "public_subnets_cidr" {}
-#variable "private_subnets_cidr" {}
-#variable "azs" {}
-variable "vpc_id" {}
-variable "private_subnet_ids" {}
+
 
 locals {
  
   environment_prefix = join(var.delimiter, compact([var.domain, var.env]))
   module_prefix      = join(var.delimiter, compact([local.environment_prefix, var.name]))
 }
+
