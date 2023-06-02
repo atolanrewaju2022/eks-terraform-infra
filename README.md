@@ -24,6 +24,6 @@ This module includes eks cluster configuration for DLFrame eks  cluster. It can 
 - EKS Node Group
 - Security Group
 - IAM Role and Permissions
-- 
+- Openid Connect Provider
 
 # Infracost 
