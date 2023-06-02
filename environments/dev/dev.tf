@@ -34,6 +34,12 @@ module "dev_eks" {
   instance_type             = "t2.large"
   capacity_type             = "ON_DEMAND"
   retention_in_days         = 30
+  vpc_cidr                  = "10.220.112.0/20"
+  azs                       = [ "us-east-1a", "us-east-1b" , "us-east-1c", "us-east-1d" ]
+  private_subnets_cidr      = ["10.220.120.0/24", "10.220.121.0/24", "10.220.122.0/24", "10.220.123.0/24"]
+  public_subnets_cidr       = ["10.220.132.0/24", "10.220.133.0/24", "10.220.134.0/24", "10.220.135.0/24"]
+
+
 
   ########################
   # Tags
@@ -48,14 +54,15 @@ module "dev_eks" {
   ######################## 
   eks_sg_ingress_rules = [
 
-    {
+    {  
+      description = "Test and allow all traffic before locking it down"
       from_port   = 0
       to_port     = 0
       protocol    = "-1"
       cidr_block  = "0.0.0.0/0" # This needs to be lock down to cidr in production use 
     },
     {
-      description = "DC6 - All Traffic"
+      description = "All Traffic"
       from_port   = 0
       to_port     = 0
       protocol    = "-1"
