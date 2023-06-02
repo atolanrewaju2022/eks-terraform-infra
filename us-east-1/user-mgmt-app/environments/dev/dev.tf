@@ -22,7 +22,7 @@ module "dev_eks" {
 
   source                    = "../../"
   create                    = true
-  cloudwatch_log_group_name = "dlframe-eks-dev"
+  cloudwatch_log_group_name = "user-mgmt-eks-dev"
   cloudwatch_log_stream     = "eks"
   disk_size                 = 30
   cluster_name              = "user-mgmt-dev"
@@ -52,14 +52,14 @@ module "dev_eks" {
       from_port   = 0
       to_port     = 0
       protocol    = "-1"
-      cidr_block  = "0.0.0.0/0" # This need to be lock down to cidr in production use 
+      cidr_block  = "0.0.0.0/0" # This needs to be lock down to cidr in production use 
     },
     {
       description = "DC6 - All Traffic"
       from_port   = 0
       to_port     = 0
       protocol    = "-1"
-      cidr_block  = "0.0.0.0/0" # # This need to be lock down to cidr in production use 
+      cidr_block  = "0.0.0.0/0" # # This needs to be lock down to cidr in production use 
     }
   ]
 
