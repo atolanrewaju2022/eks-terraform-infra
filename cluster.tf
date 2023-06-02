@@ -9,12 +9,12 @@ resource "aws_cloudwatch_log_group" "eks_cluster" {
 
   tags = {
     Name            = var.node_grp_name
-    DeptOwner       = "SRE"
+    DeptOwner       = "DevOps"
     DeptSubOwner    = "Infrastructure"
-    BillingGroup    = "DLFrame: ${var.env}"
+    BillingGroup    = "INFRA: ${var.env}"
     BillingSubGroup = "EksCluster"
     Environment     = var.env
-    CreatedBy       = "SRETeam@glidewelldental.com"
+    CreatedBy       = "DevOps@olanrewaju.com"
   }
 
 }
@@ -41,12 +41,12 @@ resource "aws_eks_cluster" "eks_cluster" {
    
   tags = {
     Name            = "${var.cluster_name}-eks"
-    DeptOwner       = "SRE"
+    DeptOwner       = "DevOps"
     DeptSubOwner    = "Infrastructure"
-    BillingGroup    = "DLFrame: ${var.env}"
+    BillingGroup    = "INFRA: ${var.env}"
     BillingSubGroup = "EksCluster"
     Environment     = var.env
-    CreatedBy       = "SRETeam@glidewelldental.com"
+    CreatedBy       = "DevOps@olanrewaju.com"
   }
 }
 
@@ -93,12 +93,12 @@ resource "aws_eks_addon" "amazon_vpc_cni" {
 
     tags = {
     Name            = var.cluster_name
-    DeptOwner       = "SRE"
+    DeptOwner       = "DevOps"
     DeptSubOwner    = "Infrastructure"
-    BillingGroup    = "DLFrame: ${var.env}"
+    BillingGroup    = "INFRA: ${var.env}"
     BillingSubGroup = "EksCluster"
     Environment     = var.env
-    CreatedBy       = "SRETeam@glidewelldental.com"
+    CreatedBy       = "DevOps@olanrewaju.com"
   }
 }
 
@@ -112,12 +112,12 @@ resource "aws_eks_addon" "core_dns" {
 
     tags = {
     Name            = var.cluster_name
-    DeptOwner       = "SRE"
+    DeptOwner       = "DevOps"
     DeptSubOwner    = "Infrastructure"
-    BillingGroup    = "DLFrame: ${var.env}"
+    BillingGroup    = "INFRA: ${var.env}"
     BillingSubGroup = "EksCluster"
     Environment     = var.env
-    CreatedBy       = "SRETeam@glidewelldental.com"
+    CreatedBy       = "DevOps@olanrewaju.com"
   }
 }
 
@@ -131,12 +131,12 @@ resource "aws_eks_addon" "kube_proxy" {
 
     tags = {
     Name            = var.cluster_name
-    DeptOwner       = "SRE"
+    DeptOwner       = "DevOps"
     DeptSubOwner    = "Infrastructure"
-    BillingGroup    = "DLFrame: ${var.env}"
+    BillingGroup    = "INFRA: ${var.env}"
     BillingSubGroup = "EksCluster"
     Environment     = var.env
-    CreatedBy       = "SRETeam@glidewelldental.com"
+    CreatedBy       = "DevOps@olanrewaju.com"
   }
 
 }
@@ -149,12 +149,12 @@ resource "aws_eks_addon" "ebs_csi-driver" {
 
     tags = {
     Name            = var.cluster_name
-    DeptOwner       = "SRE"
+    DeptOwner       = "DevOps"
     DeptSubOwner    = "Infrastructure"
-    BillingGroup    = "DLFrame: ${var.env}"
+    BillingGroup    = "INFRA: ${var.env}"
     BillingSubGroup = "EksCluster"
     Environment     = var.env
-    CreatedBy       = "SRETeam@glidewelldental.com"
+    CreatedBy       = "DevOps@olanrewaju.com"
   }
 
 }
