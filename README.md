@@ -11,3 +11,15 @@ This eks-terraform-infra repository will be use as template to provision Elastic
 - [Resources](#resources)
 - [Terraform plan output](#terraform-plan-output)
 - [Infracost](#Infracost)
+
+# Purpose
+Provisions an EKS cluster, the Node Group attached to the cluster, and other supporting resources (ALB's,VPC, IAM etc).
+
+# Scope
+
+This module includes eks cluster configuration for DLFrame eks  cluster. It can provision clusters in `dev`,`qa`, `uat`, or `prod`. The desired application/environment can be configured via command line invocation. I.e. to deploy the user-magmt-app eks cluster to `uat`, you'd use the following command: `ENV=uat`.
+
+# Resources
+
+
+# Infracost 
