@@ -52,14 +52,14 @@ resource "aws_eks_cluster" "eks_cluster" {
 
 
 #EKS managed node group
-resource "aws_eks_node_group" "dlframe_eks_node_group" {
+resource "aws_eks_node_group" "app_eks_node_group" {
 
   ami_type                    = var.ami_type
   capacity_type               = var.capacity_type
   cluster_name                = aws_eks_cluster.eks_cluster.name
   node_group_name             = "${var.node_grp_name}-1"
   node_role_arn               = aws_iam_role.eks_worker_nodes.arn
-  subnet_ids                  = var.private_subnet_ids
+  subnet_ids                  = var.public_subnet_ids
   instance_types              = [ "t2.large" ]   #[ var.instance_type ]
   disk_size                   = var.disk_size
   version                     = var.eks_version 
