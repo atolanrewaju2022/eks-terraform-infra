@@ -2,7 +2,7 @@
 
 resource "aws_security_group" "eks_security_group"  {
   name        = "${var.domain}-${var.env}-eks-security-group"
-  vpc_id      = var.vpc_id 
+  vpc_id      = aws_vpc.app_vpc.id
   description = "allows access from anywhere in the ${var.env}1 VPC"
 
   tags = {
