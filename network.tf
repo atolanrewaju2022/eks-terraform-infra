@@ -89,11 +89,6 @@ resource "aws_route_table" "app_private_rtable" {
   count  =  var.create ? length(var.private_subnets_cidr) : 0
   vpc_id = aws_vpc.app_vpc.id
 
-  # route {
-  #   cidr_block         = "192.168.128.0/19" # ClientVPN route - this is the same in all envionments
-  #   transit_gateway_id = var.transit_gateway_id  
-  # }
-
   route {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = aws_nat_gateway.app_nat_gw[count.index].id
@@ -172,7 +167,7 @@ resource "aws_nat_gateway" "app_nat_gw" {
 #   depends_on         = [aws_subnet.app_public_subnets]
 
 #   tags = {
-#     Name            = "ClientVPN-DEV/EPDEV-${local.environment_prefix}-vpc (us-east-1)"
+#     Name            = "ClientVPN-DEV-${local.environment_prefix}-vpc (us-east-1)"
 #     DeptOwner       = "DevOps"
 #     DeptSubOwner    = "Infrastructure"
 #      BillingGroup    = "INFRA: ${var.env}"
