@@ -35,7 +35,7 @@ resource "aws_eks_cluster" "eks_cluster" {
   
   vpc_config {
 
-    subnet_ids              = 
+    subnet_ids              = aws_subnet.app_public_subnets[count.index].id
     security_group_ids      = [ aws_security_group.eks_security_group.id ]
   }
    
@@ -59,7 +59,7 @@ resource "aws_eks_node_group" "app_eks_node_group" {
   cluster_name                = aws_eks_cluster.eks_cluster.name
   node_group_name             = "${var.node_grp_name}-1"
   node_role_arn               = aws_iam_role.eks_worker_nodes.arn
-  subnet_ids                  = var.public_subnet_ids
+  subnet_ids                  = aws_subnet.app_public_subnets[count.index].id
   instance_types              = [ "t2.large" ]   #[ var.instance_type ]
   disk_size                   = var.disk_size
   version                     = var.eks_version 
